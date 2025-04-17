@@ -1,67 +1,105 @@
-# BoxTent Light
-## A cosa serve
-BoxTent light consente di avere una base di partenza per creare siti statici semplici in HTML/CSS/JS, includendo automazioni per facilitare lo sviluppo e velocizzarlo. Include:
 
-* Compilazione Sass (`.scss`) 
-* Ottimizzazione e compressione immagini
-* Gestione Favicons
-* Autoprefixing del CSS
-* Gestione Fonts
-* HTML includes
+# Project Name
 
-## Come si usa
-### Installazione
-- Scarica il respository da bitbucket
-- Spostane il contenuto tranne i file relativi a git nella cartella del tuo progetto
-- Da terminale: `npm install`
-- Da terminale: `grunt`
-- Vai su `http://localhost:3000` e puoi iniziare a lavorare.
+## Installation
 
-### Comandi
+To get started with this project, follow these steps:
 
-- `grunt`: per avviare il progetto e il watch. Mentre lavori grunt deve sempre girare
-- `grunt build`: può succedere che un'automazione per qualche motivo non parta, oppure si cancellano file in `_src` e quindi il contenuto di `_dev` risulta disallineato. In quel caso con questo comando `_dev` viene svuotata e ricreata da capo. Si può usare questo comando in modo safe e in qualsiasi momento.
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   ```
 
-### Struttura cartelle
+2. Navigate to the project folder:
+   ```bash
+   cd <project-folder>
+   ```
 
-Lavorare esclusivamente nella cartella `_src`, ciò che vedi sul browser corrisponde al compilato che si trova nella cartella `_dev` (che non dovrai mai modificare).
+3. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
 
-Nella cartella `_src`:
+4. Make sure you have `Node.js` installed. If not, download and install it from [here](https://nodejs.org/).
 
-- `_includes` dovrà contenere gli includes. Ne va usato almeno uno in ogni pagina del sito.
-- `fonts` dovrà contenere i font (se ce ne sono). se non ce ne sono o si usa un google font, si può cancellare
-- `images` deve contenere le immagini, può contenere sottocartelle e la cartella `favicons` (si deve chiamare così) con le favicons prodotte dal sito http://realfavicongenerator.net/
-- `js` contiene i JS, può contenere sottocartelle chiamate come preferisci
-- `scss` contiene gli scss.
+---
 
-Con grunt avviato, il watch si occuperà automaticamente di tutto:
+## Available Grunt Commands
 
-- compilare gli scss
-- ottimizzare le immagini e copiare le favicons
-- copiare l'html elaborandone gli includes
-- copiare i js
-- copiare i fonts
+Here are the available Grunt commands you can use in this project:
 
-Può succedere che un'automazione per qualche motivo non parta, oppure si cancellano file in `_src` e quindi il contenuto di `_dev` risulta disallineato. In ogni caso con il comando `grunt build` la cartella `_dev` viene svuotata e ricreata da capo. Si può usare questo comando in modo safe e in qualsiasi momento.
+### `grunt default`
+Starts the development server with live reloading and watches for changes in files.
+- Runs: `browserSync`, `watch`
+- Automatically opens the browser and watches changes in source files.
 
-## Personalizzazione
+### `grunt build`
+Prepares the `_dev` folder with optimized assets and other necessary files for production.
+- Runs:
+  - `clean`: Removes the `_dev` folder.
+  - `processhtml:dev`: Processes HTML files and handles includes.
+  - `imagemin`: Compresses images.
+  - `copy:unoptimizedImage`: Copies unoptimized images.
+  - `copy:js`: Copies JavaScript files.
+  - `sass:dist`: Compiles SCSS files.
+  - `postcss:dev`: Runs autoprefixer to add vendor prefixes.
+  - `copy:the_fonts`: Copies font files.
+  - `copy:favicons`: Copies favicon files.
 
-Il gruntfile è personalizzabile. C'è la possibilità di cambiare i path principali delle risorse e ottimizzare le options dei task. Per approfondire cercare su google ogni task, andare alla loro pagina github e lì sarà possibile trovare la documentazione di ogni singolo task.
+### `grunt a`
+Quickly checks accessibility for all pages and outputs a summary of errors in the terminal.
+- Uses the `pa11y` tool with a JSON reporter to check accessibility issues based on the URLs defined in the `pa11yci.config.js` configuration file.
 
-## Problemi frequenti
+### `grunt b`
+Runs the old `pa11y-ci` command to generate accessibility reports.
+- Executes: `exec:pa11y_ci`
+- Generates an accessibility report for the pages defined in the `pa11yci.config.js` configuration file.
 
-### Il task non scatta e/o alcune cose non vengono copiate su _dev
+### `grunt c`
+Generates detailed HTML accessibility reports only for pages with accessibility issues.
+- Uses `pa11y` to generate HTML reports for pages that have one or more issues.
+- The reports are saved in the `accessibility-reports` folder.
 
-Può succedere quando si inseriscono nuovi file in una cartella vuota mai usata prima. Succederà solo finché quella cartella non sarà riempita per almeno la prima volta, dopodiché funzionerà tutto come previsto.
+### `grunt watch`
+Monitors changes in source files and runs specific tasks when files are updated.
+- Watches for changes in:
+  - HTML files: Runs `processhtml:dev`.
+  - SCSS files: Runs `sass:dist` and `postcss:dev`.
+  - JavaScript files: Runs `copy:js`.
+  - Image files: Runs `imagemin` and copies unoptimized images.
+  - Font files: Runs `copy:the_fonts`.
+  - Gruntfile: Triggers grunt tasks.
 
-**soluzione**: Se succede, stoppare grunt, fare `grunt build` e tornare a lavorare con `grunt`
+### `grunt clean`
+Removes the `_dev` folder.
+- Prepares the project for a fresh build.
 
-### _src e _dev sono disallineate
+---
 
-**soluzione**: Se succede, stoppare grunt, fare `grunt build` e tornare a lavorare con `grunt`
+## File Structure
 
+Here’s a brief overview of the file structure:
 
+```
+src/                  # Source files (HTML, SCSS, JS, Images)
+  |_ scss/             # SCSS files
+  |_ js/               # JavaScript files
+  |_ images/           # Images
+  |_ fonts/            # Fonts
+  |_ favicons/         # Favicon files
+  |_ _includes/        # Includes for HTML templates
+dev/                  # Compiled files for development
+accessibility-reports/  # Pa11y HTML accessibility reports
+package.json          # NPM dependencies and scripts
+Gruntfile.js          # Grunt tasks configuration
+pa11yci.config.js     # Pa11y CI configuration
+```
 
+---
 
+## Notes
 
+- The `pa11yci.config.js` file contains the configuration for accessibility checks, including URLs to be tested.
+- The build tasks automatically optimize assets (images, CSS, JS, etc.) and prepare everything for deployment.
 
+For more information on Grunt, visit the [Grunt website](https://gruntjs.com/).
