@@ -1,0 +1,32 @@
+<script src="js/libs/jquery.js"></script>
+        <script src="js/custom/main.js"></script>
+         <!-- Include Slick Slider -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Activate Slick Slider -->
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                centerMode: true,
+                slidesToShow: 3,
+                variableWidth: true,
+                arrows: true,  /* Always show arrows */
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            centerMode: true,
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            centerMode: true,
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>

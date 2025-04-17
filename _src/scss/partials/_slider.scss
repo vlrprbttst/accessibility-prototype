@@ -1,0 +1,102 @@
+.my-slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slick-slider {
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+.my-slide p{
+    margin:0;
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18px;
+    /* or 90% */
+    text-align: center;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: black!important;
+}
+
+.slick-prev,
+.slick-next {
+    position: absolute;
+    bottom: 0px;
+    width: 30px;
+    height: 30px;
+    z-index: 100;
+    color: #333;
+    border: none;
+    background: none;
+    transform: none;
+    top: auto;
+}
+
+.slick-prev {
+    left: calc(50% - 35px);
+}
+
+.slick-next {
+    right: calc(50% - 35px);
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 30px;
+    line-height: 1;
+    color: black;
+    opacity: 0.75;
+}
+
+.slick-slide {
+    transition: all .3s;
+    opacity: 0.6;
+    transform: scale(.9);
+}
+
+.slick-slide.slick-center {
+    opacity: 1;
+    transform: scale(1);
+}
+.my-slide {
+    margin-bottom: 10px;
+}
+.my-slide div {
+    text-align: center;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+.xxs {
+    background:white;
+    color:black;
+    padding: 20px;
+}
+.my-slide {
+    border-radius:20px;
+    overflow:hidden;
+    width:300px;
+    box-shadow: 0 0 5px rgba(black,.25);
+}
+.xxs a,.xxs a:hover {
+    padding: 10px 32px;
+    background: #E1000F;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 20px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    display: inline-block;
+    color: #FFFFFF;
+    margin-top: 20px;
+    text-decoration: none;
+}

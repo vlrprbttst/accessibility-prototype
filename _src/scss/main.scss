@@ -1,0 +1,191 @@
+// base
+@import "partials/_variables.scss";
+@import "partials/_mixin.scss";
+@import "partials/_normalize.scss";
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: whitesmoke;
+    font-family: arial;
+    font-size: 18px;
+    line-height: 1.5;
+    color: black;
+}
+
+.skip-link {
+    position: fixed;
+    z-index: 2;
+    left: -9999999px;
+    top: 20px;
+    background: #fffacd;
+    padding: 20px;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5px rgba(black, 0.25);
+    z-index: 1001;
+  
+    &:focus {
+        left: 50%;
+        z-index: 1001;
+    }
+}
+
+@import "partials/_nav.scss";
+
+@import "partials/_slider.scss";
+
+.header,header {
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    min-height: 500px;
+}
+
+ol {
+    position: sticky;
+    top: 150px;
+}
+
+.content {
+    display: flex;
+    @media (max-width: 767px) {
+        flex-direction: column;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+        margin-top: 0;
+    }
+    aside,.aside {
+        order: 2;
+        width: 400px;
+        border-left: 1px solid #eee;
+        padding: 40px;
+        @media (max-width: 767px) {
+            width: 100%;
+            min-width: 1px;
+        }
+    }
+    .page {
+        padding: 40px;
+        width: calc(100% - 400px);
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 20px 60px;
+    h2 {
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+
+video {
+    max-width: 100%; // Ensures that the player never goes beyond the width of its parent container
+    height: auto; // Automatically adjust the height based on the current width while maintaining the aspect ratio
+
+    @media screen and (max-width: 600px) {
+        // If the screen is 600px or less, make the video and audio player take up the full width of the screen
+        width: 100%;
+    }
+}
+
+form {
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    fieldset label,
+    input[type="checkbox"] + label {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    .form-element {
+        margin-bottom: 24px;
+    }
+    textarea {
+        width: 100%;
+    }
+}
+
+.custom-select-container {
+    position: relative;
+    width: 200px;
+    background: #fff;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    padding: 10px;
+    .selected-option {
+        color: #333;
+    }
+    .custom-options-container {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border: 1px solid #aaa;
+        background: #fff;
+        .custom-option {
+            padding: 10px;
+            &:hover,
+            &[aria-selected="true"] {
+                background: #f0f0f0;
+            }
+        }
+    }
+}
+
+// tabs
+
+.tabs {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+  }
+  .tab:focus {
+    outline: 2px solid #000;
+  }
+  .tabpanel {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .tabpanel.active {
+    display: block;
+  }
+  
