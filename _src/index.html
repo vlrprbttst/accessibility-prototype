@@ -22,13 +22,13 @@
     
 </head>
 
-<body>
+<body class="ae">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav role="menubar" aria-label="Main Navigation" class="nav">
+    <nav aria-label="Main Navigation" class="nav">
 
     <div class="nav-left">
-        <a href="" aria-label="Home">
+        <a href="/" aria-label="Home">
             <img src="https://placehold.co/100x100" alt="Company Logo" width="100">
         </a>
     </div>
@@ -39,29 +39,29 @@
         </button>
         
         <div class="nav-center">
-            <ul class="menu" id="menu" role="menu" aria-label="Site Menu Bar">
+            <ul class="menu" id="menu" aria-label="Site Menu Bar">
                 <li style="position:relative">
-                    <a href="#" role="menuitem" aria-haspopup="true" aria-controls="chi-siamo-submenu" aria-expanded="false" id="chi-siamo">Chi siamo</a>
-                    <ul role="menu" id="chi-siamo-submenu" style="display: none;" aria-hidden="true" aria-labelledby="chi-siamo">
-                        <li><a href="" role="menuitem">La Sede</a></li>
-                        <li><a href="" role="menuitem">Il Team</a></li>
+                    <a href="#" aria-haspopup="true" aria-controls="chi-siamo-submenu" aria-expanded="false" id="chi-siamo">Chi siamo</a>
+                    <ul id="chi-siamo-submenu" style="display: none;" aria-hidden="true" aria-labelledby="chi-siamo">
+                        <li><a href="http://google.com">La Sede</a></li>
+                        <li><a href="http://google.com">Il Team</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="" role="menuitem">Dove siamo</a>
+                    <a href="http://google.com">Dove siamo</a>
                 </li>
                 <li>
-                    <a href="" role="menuitem">Servizi</a>
+                    <a href="http://bing.com">Servizi</a>
                 </li>
             </ul>
         </div>
         <div class="nav-right">
-            <ul role="menu" aria-label="User Options">
+            <ul aria-label="User Options">
                 <li>
-                    <a href="" role="menuitem">login</a>
+                    <a href="log.html">login</a>
                 </li>
                 <li>
-                    <a href="" role="menuitem">preferences</a>
+                    <a href="pref.html">preferences</a>
                 </li>
             </ul>
         </div>
@@ -75,10 +75,10 @@
         <img src="https://adventures.is/media/226892/social-media-icelandic-horse.jpg" alt="Icelandic Horse in a grassfields">
     </header>
     <main class="content" id="main-content" role="main">
-        <!-- <div role="complementary"> -->
+        
         <aside>
             <h3 id="summary">Summary</h3>
-            <ol aria-labelledby="summary" role="navigation">
+            <ol aria-labelledby="summary">
                 <li>
                     <a href="#title" aria-label="Introduction section">Intro</a>
                 </li>
@@ -95,6 +95,7 @@
             <h1 id="title">
                 The Icelandic horse
             </h1>
+
             <p>
                 The Icelandic horse (Icelandic: íslenski hesturinn [ˈistlɛnscɪ ˈhɛstʏrɪn]) is a breed of horse developed in Iceland...
                 [truncated for brevity] <br><br>
@@ -102,6 +103,30 @@
                 loream  
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ipsam ducimus. Dicta animi, rerum dolore repellendus dolorum nostrum eos libero eligendi soluta praesentium assumenda veritatis doloribus quas magni optio voluptatum.
             </p>
+
+           
+            <table>
+                <tr class="tableheader">
+                  <th scope="col">Prodotto</th>
+                  <th scope="col">Prezzo</th>
+                  <th scope="col">Quantità</th>
+                </tr>
+                <tr>
+                  <td>Notebook</td>
+                  <td>799€</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Mouse</td>
+                  <td>25€</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Tastiera</td>
+                  <td>45€</td>
+                  <td>15</td>
+                </tr>
+              </table>
 
             <div class="slider">
 
@@ -219,9 +244,23 @@
                     </div>
             
                     <div class="form-element">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password">
-                    </div>
+                        <label for="password" id="password-label">Password:</label>
+                        
+                        <input 
+                          type="password" 
+                          id="password" 
+                          name="password" 
+                          aria-describedby="password-error" 
+                          aria-invalid="true" 
+                          style="border:2px solid #9E0000;"
+                        >
+                        
+                        <div id="password-error" role="alert" style="color:#9E0000; margin-top:4px;">
+                          <p style="font-size: 12px;">
+                            La password deve contenere almeno 12 caratteri e includere una combinazione di lettere maiuscole e minuscole, numeri e simboli. Evita parole comuni e informazioni personali.
+                          </p>
+                        </div>
+                      </div>
             
                     <div class="form-element">
                         <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" aria-checked="false">
@@ -291,13 +330,13 @@
     </main>
     
 
-    <ul class="tabs">
+    <ul class="tabs" role="tablist" aria-label="Content sections">
         <li class="tab" role="tab" tabindex="0" aria-controls="tab1" aria-selected="true">Tab 1</li>
         <li class="tab" role="tab" tabindex="0" aria-controls="tab2">Tab 2</li>
         <li class="tab" role="tab" tabindex="0" aria-controls="tab3">Tab 3</li>
         <li class="tab" role="tab" tabindex="0" aria-controls="tab4">Tab 4</li>
         <li class="tab" role="tab" tabindex="0" aria-controls="tab5">Tab 5</li>
-      </ul>
+    </ul>
       
       <div class="tabpanel active" id="tab1" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
         Contenuto Tab 1

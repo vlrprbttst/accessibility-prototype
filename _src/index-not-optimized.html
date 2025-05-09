@@ -1,78 +1,84 @@
 <!doctype html>
+<!--[if IE 9]>
+<html lang="en" class="ie ie9">
+<![endif]-->
+<!--[if lt IE 9]>
+<html lang="en" class="ie ie-legacy">
+<![endif]-->
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>xxx</title>
+    <title>The icelandic horse</title>
     <!-- Include CSS for Slick Slider -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
     <!-- Optional theme for Slick Slider -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     
-    <meta name="description" content="">
-    <!-- viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <!-- css -->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    
+    <!-- build:include _includes/head.html -->ì
+    _includes/head.html
+    <!-- /build -->
+
 </head>
 
 <body>
-    
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="nav">
-        <div class="nav-left">
-            <a href="">
-                <img src="https://www.unicatt.it/content/dam/unicatt/it/logo-unicatt.svg">
-            </a>
+    <nav aria-label="Main Navigation" class="nav">
+
+    <div class="nav-left">
+        <a href="/" aria-label="Home">
+            <img src="https://placehold.co/100x100" alt="Company Logo" width="100">
+        </a>
+    </div>
+    <button class="mobile-menu-button" aria-controls="mobile-menu-panel" aria-expanded="false">Menu</button>
+    <div class="mobile-menu-panel" id="mobile-menu-panel">
+        <button class="close-mobile-menu-button" aria-label="Close mobile menu" role="button">Close 
+            <span aria-hidden="true">X</span>
+        </button>
+        
+        <div class="nav-center">
+            <ul class="menu" id="menu" aria-label="Site Menu Bar">
+                <li style="position:relative">
+                    <a href="#" aria-haspopup="true" aria-controls="chi-siamo-submenu" aria-expanded="false" id="chi-siamo">Chi siamo</a>
+                    <ul id="chi-siamo-submenu" style="display: none;" aria-hidden="true" aria-labelledby="chi-siamo">
+                        <li><a href="http://google.com">La Sede</a></li>
+                        <li><a href="http://google.com">Il Team</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://google.com">Dove siamo</a>
+                </li>
+                <li>
+                    <a href="http://bing.com">Servizi</a>
+                </li>
+            </ul>
         </div>
-        <div class="mobile-menu-button">Menu</div>
-        <div class="mobile-menu-panel" id="mobile-menu-panel">
-            <div class="close-mobile-menu-button">Close 
-                <span>X</span>
-            </div>
-            
-            <div class="nav-center">
-                <div class="menu" id="menu">
-                    <div class="menu-item" style="position:relative">
-                        <a href="#" id="chi-siamo">Chi siamo</a>
-                        <div class="submenu" id="chi-siamo-submenu" style="display: none;">
-                            <div class="submenu-item"><a href="">La Sede</a></div>
-                            <div class="submenu-item"><a href="">Il Team</a></div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <a href="">Dove siamo</a>
-                    </div>
-                    <div class="menu-item">
-                        <a href="">Servizi</a>
-                    </div>
-                </div>
-            </div>
-            <div class="nav-right">
-                <div class="menu2">
-                    <div class="menu-item2">
-                        <a href="">login</a>
-                    </div>
-                    <div class="menu-item2">
-                        <a href="">preferences</a>
-                    </div>
-                </div>
-            </div>
+        <div class="nav-right">
+            <ul aria-label="User Options">
+                <li>
+                    <a href="log.html">login</a>
+                </li>
+                <li>
+                    <a href="pref.html">preferences</a>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
 
     
     
 <div class="container">
-    <section class="header">
-        <img src="https://adventures.is/media/226892/social-media-icelandic-horse.jpg" alt="">
-    </section>
-    <div class="content" id="main-content">
-        <div class="aside">
+    <header>
+        <img src="https://adventures.is/media/226892/social-media-icelandic-horse.jpg" alt="Icelandic Horse in a grassfields">
+    </header>
+    <main class="content" id="main-content" role="main">
+        
+        <aside>
             <h3 id="summary">Summary</h3>
-            <ol aria-labelledby="summary" role="navigation">
+            <ol aria-labelledby="summary">
                 <li>
                     <a href="#title" aria-label="Introduction section">Intro</a>
                 </li>
@@ -83,12 +89,13 @@
                     <a href="#form-header" aria-label="Form section">Form</a>
                 </li>
             </ol>
-        </div>
+        </aside>
         
-        <div role="button" class="article">
-            <h1 id="title">
+        <div class="page">
+            <h1 id="title" style="color:#eee">
                 The Icelandic horse
             </h1>
+
             <p>
                 The Icelandic horse (Icelandic: íslenski hesturinn [ˈistlɛnscɪ ˈhɛstʏrɪn]) is a breed of horse developed in Iceland...
                 [truncated for brevity] <br><br>
@@ -97,11 +104,36 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, ipsam ducimus. Dicta animi, rerum dolore repellendus dolorum nostrum eos libero eligendi soluta praesentium assumenda veritatis doloribus quas magni optio voluptatum.
             </p>
 
+            <table>
+                <tr class="tableheader">
+                  <td>Prodotto</td>
+                  <td>Prezzo</td>
+                  <td>Quantità</td>
+                </tr>
+                <tr>
+                  <td>Notebook</td>
+                  <td>799€</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Mouse</td>
+                  <td>25€</td>
+                  <td>20</td>
+                </tr>
+                <tr>
+                  <td>Tastiera</td>
+                  <td>45€</td>
+                  <td>15</td>
+                </tr>
+              </table>
+              
+              
+
             <div class="slider">
 
                 <div class="my-slide">
                     <div>
-                        <img src="https://www.donnad.it/sites/default/files/MicrosoftTeams-image_65_1.png" alt="">
+                        <img src="https://www.donnad.it/sites/default/files/MicrosoftTeams-image_65_1.png" alt="People illustration">
                     </div>
                     <div class="xxs">
                         <p>Dfactor <br>per Dixan</p>
@@ -162,9 +194,9 @@
                 
             </div>
 
-            <h1>
+            <h2>
                 Audio and Video
-            </h1>
+            </h2>
 
             <!-- Prerecorded Video-only content -->
             <video controls>
@@ -172,7 +204,10 @@
                 Your browser does not support the video tag.
             </video>
 
-            
+            <p>
+                <strong>Description:</strong>
+                This is a text description of the video content, including any important visual information that is necessary to understand the content of the video.
+            </p>
 
             <!-- or an audio track -->
 
@@ -181,13 +216,20 @@
                 Your browser does not support the audio element.
             </audio>
             
+            <br><br>
+
+            <button id="toggleTranscript">Show/Hide Transcript</button>
+
+            <div id="transcript" style="display: none;">
+                <p><strong>Transcript:</strong>
+                    This is a text alternative for the audio file. It includes all of the spoken words and important non-verbal sounds from the audio file.
+                </p>
+            </div>
 
             <br><br>
 
-            <h2 id="breed-characteristics" style="font-size:50px">Breed characteristics</h2>
-            <p style="color:#eee;
-            letter-spacing: -1px;
-            line-height: 1.1;">
+            <h2 id="breed-characteristics">Breed characteristics</h2>
+            <p>
                 Icelandic horses weigh between 330 and 380 kilograms (730 and 840 lb)[1] and stand an average of 13 and 14 hands...
                 [truncated for brevity] Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum tempore quae incidunt at magnam inventore dolorem laborum. Quos ullam vel, dolores voluptatibus voluptatum autem repellat maxime, placeat, tempore debitis dolorem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dolor molestias aliquam cupiditate obcaecati nisi iusto, vel veniam laborum nulla quibusdam sequi tempore voluptates optio debitis saepe, quis perspiciatis eum. <br><br>
                 loream  
@@ -198,13 +240,13 @@
             <section aria-labelledby="form-header">
                 <form action="/submit_form" method="post">
                     <div class="form-element">
-                        
+                        <label for="fname">First name (example: John):</label>
                         <input type="text" id="fname" name="fname" placeholder="John">
                     </div>
             
                     <div class="form-element">
-                      
-                        <input type="password" id="password" name="password">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" style="border:2px solid red;">
                     </div>
             
                     <div class="form-element">
@@ -212,16 +254,16 @@
                         <label for="vehicle1">I have a bike</label>
                     </div>
             
-                    <div class="form-element">
-                        
+                    <fieldset class="form-element">
+                        <legend>Gender</legend>
                         <input type="radio" id="male" name="gender" value="male">
                         <label for="male">Male</label>
                         <input type="radio" id="female" name="gender" value="female">
                         <label for="female">Female</label>
-                    </div>
+                    </fieldset>
             
                     <div class="form-element">
-                        Car:
+                        <label for="cars">Choose a car:</label>
                         <select id="cars" name="cars">
                             <option value="volvo">Volvo</option>
                             <option value="saab">Saab</option>
@@ -247,7 +289,7 @@
                     </div>
             
                     <div class="form-element">
-                        <label for="myfile">Select a file</label>
+                        <label for="myfile">Select a file (use the 'browse' button):</label>
                         <input type="file" id="myfile" name="myfile">
                     </div>
             
@@ -272,7 +314,32 @@
                 </form>
             </section>
         </div>
-    </div>
+    </main>
+    
+
+    <ul class="tabs" role="tablist" aria-label="Content sections">
+        <li class="tab" role="tab" tabindex="0" aria-controls="tab1" aria-selected="true">Tab 1</li>
+        <li class="tab" role="tab" tabindex="0" aria-controls="tab2">Tab 2</li>
+        <li class="tab" role="tab" tabindex="0" aria-controls="tab3">Tab 3</li>
+        <li class="tab" role="tab" tabindex="0" aria-controls="tab4">Tab 4</li>
+        <li class="tab" role="tab" tabindex="0" aria-controls="tab5">Tab 5</li>
+    </ul>
+      
+      <div class="tabpanel active" id="tab1" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
+        Contenuto Tab 1
+      </div>
+      <div class="tabpanel" id="tab2" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
+        Contenuto Tab 2
+      </div>
+      <div class="tabpanel" id="tab3" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
+        Contenuto Tab 3
+      </div>
+      <div class="tabpanel" id="tab4" role="tabpanel" aria-labelledby="tab4" aria-hidden="true">
+        Contenuto Tab 4
+      </div>
+      <div class="tabpanel" id="tab5" role="tabpanel" aria-labelledby="tab5" aria-hidden="true">
+        Contenuto Tab 5
+      </div>
 
     
     <footer>

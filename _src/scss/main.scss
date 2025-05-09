@@ -189,3 +189,25 @@ form {
     display: block;
   }
   
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  tr {
+    border-bottom: 1px solid #ccc;
+  }
+  td {
+    padding: 12px 16px;
+  }
+  .tableheader {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+
+  .ae {
+    *:focus {
+        outline: 2px solid yellow;
+    }
+  }
