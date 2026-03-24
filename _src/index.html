@@ -34,14 +34,14 @@
     </div>
     <button class="mobile-menu-button" aria-controls="mobile-menu-panel" aria-expanded="false">Menu</button>
     <div class="mobile-menu-panel" id="mobile-menu-panel">
-        <button class="close-mobile-menu-button" aria-label="Close mobile menu" role="button">Close 
+        <button class="close-mobile-menu-button" aria-label="Close mobile menu">Close
             <span aria-hidden="true">X</span>
         </button>
         
         <div class="nav-center">
             <ul class="menu" id="menu" aria-label="Site Menu Bar">
                 <li style="position:relative">
-                    <a href="#" aria-haspopup="true" aria-controls="chi-siamo-submenu" aria-expanded="false" id="chi-siamo">Chi siamo</a>
+                    <a href="#" aria-controls="chi-siamo-submenu" aria-expanded="false" id="chi-siamo">Chi siamo</a>
                     <ul id="chi-siamo-submenu" style="display: none;" aria-hidden="true" aria-labelledby="chi-siamo">
                         <li><a href="http://google.com">La Sede</a></li>
                         <li><a href="http://google.com">Il Team</a></li>
@@ -106,6 +106,7 @@
 
            
             <table>
+                <caption>Prodotti disponibili con prezzi e quantità</caption>
                 <tr class="tableheader">
                   <th scope="col">Prodotto</th>
                   <th scope="col">Prezzo</th>
@@ -136,7 +137,7 @@
                     </div>
                     <div class="xxs">
                         <p>Dfactor <br>per Dixan</p>
-                        <a href="#">partecipa</a>
+                        <a href="#" aria-label="Partecipa a Dfactor per Dixan">partecipa</a>
                     </div>
                 </div>
         
@@ -198,8 +199,9 @@
             </h2>
 
             <!-- Prerecorded Video-only content -->
-            <video controls>
+            <video controls aria-label="Video about Icelandic horses">
                 <source src="https://getsamplefiles.com/download/mp4/sample-1.mp4" type="video/mp4">
+                <track kind="captions" src="" srclang="en" label="English captions">
                 Your browser does not support the video tag.
             </video>
 
@@ -210,14 +212,13 @@
 
             <!-- or an audio track -->
 
-            <audio controls>
+            <audio controls aria-label="Audio content with transcript available below">
                 <source src="audio.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
             
-            <br><br>
 
-            <button id="toggleTranscript">Show/Hide Transcript</button>
+            <button id="toggleTranscript" aria-expanded="false" aria-controls="transcript">Show Transcript</button>
 
             <div id="transcript" style="display: none;">
                 <p><strong>Transcript:</strong>
@@ -225,7 +226,6 @@
                 </p>
             </div>
 
-            <br><br>
 
             <h2 id="breed-characteristics">Breed characteristics</h2>
             <p>
@@ -263,7 +263,7 @@
                       </div>
             
                     <div class="form-element">
-                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" aria-checked="false">
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                         <label for="vehicle1">I have a bike</label>
                     </div>
             
@@ -331,30 +331,30 @@
     
 
     <ul class="tabs" role="tablist" aria-label="Content sections">
-        <li class="tab" role="tab" tabindex="0" aria-controls="tab1" aria-selected="true">Tab 1</li>
-        <li class="tab" role="tab" tabindex="0" aria-controls="tab2">Tab 2</li>
-        <li class="tab" role="tab" tabindex="0" aria-controls="tab3">Tab 3</li>
-        <li class="tab" role="tab" tabindex="0" aria-controls="tab4">Tab 4</li>
-        <li class="tab" role="tab" tabindex="0" aria-controls="tab5">Tab 5</li>
+        <li class="tab" role="tab" id="tab-btn-1" tabindex="0" aria-controls="tab1" aria-selected="true">Tab 1</li>
+        <li class="tab" role="tab" id="tab-btn-2" tabindex="-1" aria-controls="tab2" aria-selected="false">Tab 2</li>
+        <li class="tab" role="tab" id="tab-btn-3" tabindex="-1" aria-controls="tab3" aria-selected="false">Tab 3</li>
+        <li class="tab" role="tab" id="tab-btn-4" tabindex="-1" aria-controls="tab4" aria-selected="false">Tab 4</li>
+        <li class="tab" role="tab" id="tab-btn-5" tabindex="-1" aria-controls="tab5" aria-selected="false">Tab 5</li>
     </ul>
       
-      <div class="tabpanel active" id="tab1" role="tabpanel" aria-labelledby="tab1" aria-hidden="false">
+      <div class="tabpanel active" id="tab1" role="tabpanel" aria-labelledby="tab-btn-1">
         Contenuto Tab 1
       </div>
-      <div class="tabpanel" id="tab2" role="tabpanel" aria-labelledby="tab2" aria-hidden="true">
+      <div class="tabpanel" id="tab2" role="tabpanel" aria-labelledby="tab-btn-2" aria-hidden="true">
         Contenuto Tab 2
       </div>
-      <div class="tabpanel" id="tab3" role="tabpanel" aria-labelledby="tab3" aria-hidden="true">
+      <div class="tabpanel" id="tab3" role="tabpanel" aria-labelledby="tab-btn-3" aria-hidden="true">
         Contenuto Tab 3
       </div>
-      <div class="tabpanel" id="tab4" role="tabpanel" aria-labelledby="tab4" aria-hidden="true">
+      <div class="tabpanel" id="tab4" role="tabpanel" aria-labelledby="tab-btn-4" aria-hidden="true">
         Contenuto Tab 4
       </div>
-      <div class="tabpanel" id="tab5" role="tabpanel" aria-labelledby="tab5" aria-hidden="true">
+      <div class="tabpanel" id="tab5" role="tabpanel" aria-labelledby="tab-btn-5" aria-hidden="true">
         Contenuto Tab 5
       </div>
 
-    
+
     <footer>
         <h2>Footer</h2>
         <p>

@@ -27,9 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (submenu.style.display === 'none') {
             submenu.style.display = 'block';
             menu.setAttribute('aria-expanded', 'true');
+            submenu.removeAttribute('aria-hidden');
         } else {
             submenu.style.display = 'none';
             menu.setAttribute('aria-expanded', 'false');
+            submenu.setAttribute('aria-hidden', 'true');
         }
 
         // stop the link from opening a URL
@@ -54,11 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (submenu.style.display === 'none') {
                 submenu.style.display = 'block';
                 menu.setAttribute('aria-expanded', 'true');
+                submenu.removeAttribute('aria-hidden');
                 // set focus on the first item in the submenu
                 submenuItems[0].focus();
             } else {
                 submenu.style.display = 'none';
                 menu.setAttribute('aria-expanded', 'false');
+                submenu.setAttribute('aria-hidden', 'true');
             }
 
             event.preventDefault();
@@ -202,31 +206,69 @@ options.forEach(function(option, i) {
 //transcript
 document.getElementById("toggleTranscript").addEventListener("click", function() {
     var transcript = document.getElementById("transcript");
-    if (transcript.style.display === "none") {
-        transcript.style.display = "block";
-    } else {
+    var isExpanded = this.getAttribute("aria-expanded") === "true";
+    if (isExpanded) {
         transcript.style.display = "none";
+        this.setAttribute("aria-expanded", "false");
+        this.textContent = "Show Transcript";
+    } else {
+        transcript.style.display = "block";
+        this.setAttribute("aria-expanded", "true");
+        this.textContent = "Hide Transcript";
     }
 });
 
 
 // tabs
 const tabs = document.querySelectorAll(".tab");
+
+function activateTab(tab) {
+  const tabpanelId = tab.getAttribute("aria-controls");
+  const tabpanel = document.getElementById(tabpanelId);
+  document.querySelectorAll(".tabpanel").forEach((tp) => {
+    tp.classList.remove("active");
+    tp.setAttribute("aria-hidden", "true");
+  });
+  tabpanel.classList.add("active");
+  tabpanel.removeAttribute("aria-hidden");
+  tabs.forEach((t) => {
+    t.setAttribute("aria-selected", "false");
+    t.setAttribute("tabindex", "-1");
+  });
+  tab.setAttribute("aria-selected", "true");
+  tab.setAttribute("tabindex", "0");
+}
+
 tabs.forEach((tab) => {
   tab.addEventListener("click", (event) => {
     event.preventDefault();
-    const tabpanelId = tab.getAttribute("aria-controls");
-    const tabpanel = document.getElementById(tabpanelId);
-    const allTabpanels = document.querySelectorAll(".tabpanel");
-    allTabpanels.forEach((tp) => tp.classList.remove("active"));
-    tabpanel.classList.add("active");
-    tabs.forEach((t) => t.setAttribute("aria-selected", "false"));
-    tab.setAttribute("aria-selected", "true");
+    activateTab(tab);
   });
   tab.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      tab.click();
+    const tabList = Array.from(tabs);
+    const index = tabList.indexOf(tab);
+    switch (event.key) {
+      case "ArrowRight":
+        event.preventDefault();
+        tabList[(index + 1) % tabList.length].focus();
+        break;
+      case "ArrowLeft":
+        event.preventDefault();
+        tabList[(index - 1 + tabList.length) % tabList.length].focus();
+        break;
+      case "Home":
+        event.preventDefault();
+        tabList[0].focus();
+        break;
+      case "End":
+        event.preventDefault();
+        tabList[tabList.length - 1].focus();
+        break;
+      case "Enter":
+      case " ":
+        event.preventDefault();
+        activateTab(tab);
+        break;
     }
   });
 });

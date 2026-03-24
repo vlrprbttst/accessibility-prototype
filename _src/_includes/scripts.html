@@ -6,11 +6,20 @@
     <!-- Activate Slick Slider -->
     <script>
         $(document).ready(function(){
-            $('.slider').slick({
+            var $slider = $('.slider');
+
+            function updateSliderInert() {
+                $slider.find('.slick-slide[aria-hidden="true"]').attr('inert', '');
+                $slider.find('.slick-slide:not([aria-hidden="true"])').removeAttr('inert');
+            }
+
+            $slider.on('init reInit afterChange', updateSliderInert);
+
+            $slider.slick({
                 centerMode: true,
                 slidesToShow: 3,
                 variableWidth: true,
-                arrows: true,  /* Always show arrows */
+                arrows: true,
                 responsive: [
                     {
                         breakpoint: 768,
