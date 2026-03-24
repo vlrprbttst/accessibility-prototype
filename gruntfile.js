@@ -103,13 +103,19 @@ module.exports = function(grunt) {
         // TASK SASS: compile SCSS
         sass: {
             dist: {
-                options: {},
+                options: {
+                    implementation: require('sass'),
+                    sourceMap: false
+                },
                 files: {
                     '<%= dev %>/<%= css %>/main.css': '<%= source %>/<%= scss %>/main.scss'
                 }
             },
             partials: {
-                options: {},
+                options: {
+                    implementation: require('sass'),
+                    sourceMap: false
+                },
                 files: {
                     '<%= dev %>/<%= css %>/main.css': '<%= source %>/<%= scss %>/main.scss'
                 }
@@ -207,7 +213,7 @@ module.exports = function(grunt) {
     // Load Grunt Tasks
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('@lodder/grunt-postcss');

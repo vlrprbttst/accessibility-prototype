@@ -1,7 +1,9 @@
 // base
-@import "partials/_variables.scss";
-@import "partials/_mixin.scss";
-@import "partials/_normalize.scss";
+@use "partials/variables";
+@use "partials/mixin";
+@use "partials/normalize";
+@use "partials/nav";
+@use "partials/slider";
 html {
     box-sizing: border-box;
 }
@@ -37,9 +39,6 @@ body {
     }
 }
 
-@import "partials/_nav.scss";
-
-@import "partials/_slider.scss";
 
 .header,header {
     img {
